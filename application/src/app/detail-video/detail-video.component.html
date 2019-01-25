@@ -1,0 +1,37 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+      
+      <th class="hidden">Id</th>
+      <th>Video name</th>
+      <th>Genre</th>
+      <th>Description</th>
+      <th>Video link</th>
+      <th>Thumbnail</th>
+      <th>Age limit</th>
+      <th>Rating</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+
+      <td>{{videos.id}}</td>
+      <td>{{videos.videoName}}</td>
+      <td>{{videos.genre}}</td>
+      <td>{{videos.description}}</td>
+      <td>{{videos.videoLink}}</td>
+      <td>{{videos.videoThumbnail}}</td>
+      <td>{{videos.ageLimit}}</td>
+      <td>{{videos.rating}}</td>
+
+      <td><button class="btn btn-danger" (click)="deleteVideo(video)"> Delete Video</button></td>
+      <td><button class="btn btn" (click)="editVideo(video)"> Edit Video</button></td>
+      
+    </tr>
+    </tbody>
+  </table>
+
+<iframe [src]='sanitizer.bypassSecurityTrustResourceUrl(videos.videoLink)' width="640" height="360" frameborder="0"
+webkitallowfullscreen mozallowfullscreen allowfullscreen>
+</iframe>

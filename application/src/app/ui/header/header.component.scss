@@ -1,0 +1,34 @@
+.danger-color {
+    background-color: #ff3547;
+    //background-color: $richblack;
+    margin-bottom: 25px;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    background-color: rgba(255,255,255,.1);
+}
+
+.navbar-expand .navbar-nav .nav-link {
+    color: white;
+    font-size: 20px;
+}
+
+.navbar-expand.ml-auto.navbar-nav a.nav-item.nav-link.plus {
+    border-width: 5px;
+    border-color: white;
+    border-style: solid;
+}
+
+.navbar-expand.ml-auto.navbar-nav a.nav-item.nav-link.search {
+    margin-right: 20px;
+    font-size: 30px;
+}
+
+.navbar-expand.mr-auto a {
+    margin-left: 30px;
+}
+
+.navbar.navbar-dark.danger-color a.navbar-brand {
+    font-size: 40px;
+    font-family: cursive;
+}

@@ -1,0 +1,30 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Video</h2>
+  <form>
+    <div class="form-group">
+      <label for="videoName">Video name:</label>
+      <input [(ngModel)]="video.videoName" placeholder="Video name" name="videoName" class="form-control" id="videoName">
+
+      <label for="genre">Genre:</label>
+      <input [(ngModel)]="video.genre" placeholder="Genre" name="genre" class="form-control" id="genre">
+
+      <label for="description">Description:</label>
+      <input [(ngModel)]="video.description" placeholder="Description" name="description" class="form-control" id="description">
+
+      <label for="videoLink">Video link:</label>
+      <input [(ngModel)]="video.videoLink" placeholder="Video link" name="videoLink" class="form-control" id="videoLink">
+
+      <label for="videoThumbnail">Video thumbnail:</label>
+      <input [(ngModel)]="video.videoThumbnail" placeholder="Video thumbnail" name="videoThumbnail" class="form-control" id="videoThumbnail">
+
+      <label for="ageLimit">Age limit:</label>
+      <input [(ngModel)]="video.ageLimit" placeholder="Age limit" name="ageLimit" class="form-control" id="ageLimit">
+
+      <!-- <label for="rating">Rating:</label>
+      <input [(ngModel)]="video.rating" placeholder="Rating" name="rating" class="form-control" id="rating"> -->
+    </div>
+
+    <button class="btn btn-success" (click)="createVideo()">Create</button>
+  </form>
+</div>
+
