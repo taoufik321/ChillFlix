@@ -1,37 +1,64 @@
-<table class="table table-striped">
-    <thead>
-    <tr>
-      
-      <th class="hidden">Id</th>
-      <th>Video name</th>
-      <th>Genre</th>
-      <th>Description</th>
-      <th>Video link</th>
-      <th>Thumbnail</th>
-      <th>Age limit</th>
-      <th>Rating</th>
+<!-- Page Content -->
+<div class="container">
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
+    <!-- Portfolio Item Heading -->
+    <h1 class="my-4">{{videos.videoName}}</h1>
+  
+    <!-- Portfolio Item Row -->
+    <div class="row">
+  
+      <div class="col-md-8">
+          <iframe [src]='sanitizer.bypassSecurityTrustResourceUrl(videos.videoLink)' width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+  
+      <div class="col-md-4">
+        <h3 class="my-3">Video details</h3>
+        <p>{{videos.description}}</p>
 
-      <td>{{videos.id}}</td>
-      <td>{{videos.videoName}}</td>
-      <td>{{videos.genre}}</td>
-      <td>{{videos.description}}</td>
-      <td>{{videos.videoLink}}</td>
-      <td>{{videos.videoThumbnail}}</td>
-      <td>{{videos.ageLimit}}</td>
-      <td>{{videos.rating}}</td>
+        <h3 class="my-3">More details</h3>
+        <ul>
+          <li>Name: {{videos.videoName}}</li>
+          <li>Genre: {{videos.genre}}</li>
+          <li>Description: {{videos.description}}</li>
+          <li>Age limit: {{videos.ageLimit}}</li>
+          <li>Rating: {{videos.rating}}</li>
+        </ul>
+      </div>
+  
+    </div>
+    <!-- /.row -->
+  
+    <!-- Related Projects Row -->
+    <h3 class="my-4">Related videos</h3>
 
-      <td><button class="btn btn-danger" (click)="deleteVideo(video)"> Delete Video</button></td>
-      <td><button class="btn btn" (click)="editVideo(video)"> Edit Video</button></td>
-      
-    </tr>
-    </tbody>
-  </table>
+    <div class="row">
 
-<iframe [src]='sanitizer.bypassSecurityTrustResourceUrl(videos.videoLink)' width="640" height="360" frameborder="0"
-webkitallowfullscreen mozallowfullscreen allowfullscreen>
-</iframe>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+              </a>
+        </div>
+    
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+              </a>
+        </div>
+    
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+              </a>
+        </div>
+    
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+              </a>
+        </div>
+    
+      </div>
+      <!-- /.row -->
+    
+    </div>
+    <!-- /.container -->  

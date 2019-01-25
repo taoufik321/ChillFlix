@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { VideoComponent } from './video/video.component';
-import {AddVideoComponent} from './add-video/add-video.component';
+import { AddVideoComponent } from './add-video/add-video.component';
 import { DetailVideoComponent } from './detail-video/detail-video.component';
 
 import { AdminVideoComponent } from './admin-video/admin-video.component';

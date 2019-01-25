@@ -1,11 +1,14 @@
 .danger-color {
-    background-color: #ff3547;
+    //background-color: #ff3547;
     //background-color: $richblack;
+    background-color: #0D0E13;
     margin-bottom: 25px;
 }
 
 .navbar-dark .navbar-nav .nav-link.active {
-    background-color: rgba(255,255,255,.1);
+    //background-color: rgba(255,255,255,.1);
+    //background-color: $seaserpant;
+    background-color: #4BCAF4;
 }
 
 .navbar-expand .navbar-nav .nav-link {
@@ -15,8 +18,9 @@
 
 .navbar-expand.ml-auto.navbar-nav a.nav-item.nav-link.plus {
     border-width: 5px;
-    border-color: white;
+    border-color: #145CCB;
     border-style: solid;
+    background-color: #145CCB;
 }
 
 .navbar-expand.ml-auto.navbar-nav a.nav-item.nav-link.search {
