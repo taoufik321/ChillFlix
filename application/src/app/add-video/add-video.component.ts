@@ -22,9 +22,8 @@ export class AddVideoComponent implements OnInit {
   createVideo(): void {
     this.videoService.createVideo(this.video)
         .subscribe( data => {
-          alert("Video added successfully.");
+          alert('Video added successfully.');
         });
-
-  };
+  }
 
 }

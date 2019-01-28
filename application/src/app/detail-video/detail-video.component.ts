@@ -17,8 +17,11 @@ export class DetailVideoComponent implements OnInit {
   @Input() video: Video[];
 
   videos: Video;
-  
-  constructor(private router: ActivatedRoute, private http:HttpClient, private videoService: VideoService, public sanitizer: DomSanitizer) { }
+
+  constructor(private router: ActivatedRoute,
+              private http: HttpClient,
+              private videoService: VideoService,
+              public sanitizer: DomSanitizer) { }
 
   videoUrl: string;
 
@@ -26,12 +29,12 @@ export class DetailVideoComponent implements OnInit {
 
     const id = +this.router.snapshot.params['id'];
 
-    this.videoUrl = 'http://localhost:8080/videos/' + id; 
+    this.videoUrl = 'http://localhost:8080/videos/' + id;
 
-    this.videoService.getVideo(id) 
+    this.videoService.getVideo(id)
       .subscribe( data => {
           this.videos = data;
-    }); 
+    });
   }
-  
+
 }

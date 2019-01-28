@@ -10,6 +10,7 @@ import { VideoService } from './video.service';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
+  editRowId: any;
 
   videos: Video[];
 
@@ -20,7 +21,7 @@ export class VideoComponent implements OnInit {
         .subscribe( data => {
           this.videos = data;
         });
-    };
+  }
 
     // deleteVideo(video: Video): void {
     //   this.videoService.deleteVideo(video)
@@ -34,13 +35,10 @@ export class VideoComponent implements OnInit {
     //     .subscribe( data => {
     //       //this.videos = this.videos;
     //       this.videos = this.videos.filter(u => u !== video);
-          
     //     })
     // };
-  
-  editRowId: any;
 
-  toggle(id){
+  toggle(id) {
     this.editRowId = id;
     console.log(id);
   }

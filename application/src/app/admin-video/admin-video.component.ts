@@ -26,14 +26,14 @@ export class AdminVideoComponent implements OnInit {
     this.videoService.deleteVideo(video)
       .subscribe( data => {
         this.videos = this.videos.filter(u => u !== video);
-      })
-  };
+      });
+  }
 
   editVideo(video: Video): void {
     this.videoService.editVideo(video)
       .subscribe( data => {
         this.videos = this.videos;
-        //this.videos = this.videos.filter(u => u !== video);
-      })
-  };
+        // this.videos = this.videos.filter(u => u !== video);
+      });
+  }
 }

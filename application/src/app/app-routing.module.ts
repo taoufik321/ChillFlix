@@ -6,14 +6,16 @@ import { AddVideoComponent } from './add-video/add-video.component';
 import { DetailVideoComponent } from './detail-video/detail-video.component';
 
 import { AdminVideoComponent } from './admin-video/admin-video.component';
-
-//import {AddVideoComponent} from './video/add-video.component';
+import { AuthGuard } from './authentication/auth.guard';
+import { AuthGuardService } from './authentication/auth-guard.service';
 
 const routes: Routes = [
   { path: 'videos', component: VideoComponent },
-  { path: 'add', component: AddVideoComponent },
+  { path: 'add', component: AddVideoComponent, canActivate: [ AuthGuard, AuthGuardService ] },
+  { path: 'login',  loadChildren: './authentication/auth.module#AuthModule' },
   { path: 'admin', component: AdminVideoComponent },
-  { path: 'detail/:id', component: DetailVideoComponent }
+  { path: 'detail/:id', component: DetailVideoComponent },
+  { path: '', redirectTo: '/videos', pathMatch: 'full' }
 ];
 
 @NgModule({
