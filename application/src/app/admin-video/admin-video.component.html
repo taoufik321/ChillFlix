@@ -1,10 +1,11 @@
 <div class="col-md-6">
-    <h2>Video Details</h2>
-  
-    <table class="table table-striped">
-      <thead>
+  <h2>Video Details</h2>
+
+  <table class="table table-striped">
+    
+    <thead>
       <tr>
-        
+
         <th class="hidden">Id</th>
         <th>Video name</th>
         <th>Genre</th>
@@ -13,43 +14,79 @@
         <th>Thumbnail</th>
         <th>Age limit</th>
         <th>Rating</th>
-  
+
       </tr>
-      </thead>
-      <tbody>
+    </thead>
+
+    <tbody>
       <tr *ngFor="let video of videos">
-  
+
         <td class="hidden">{{video.id}}</td>
-  
+
+        <!-- <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+
+          <td>
+            <input type="text" [(ngModel)]="video.videoName" [disabled]="!video.isEditable" />
+            <input type="text" formControlName="videoName" class="form-control" placeholder="Video name">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="video.genre" [disabled]="!video.isEditable" />
+            <input formControlName="genre" class="form-control" placeholder="Genre">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="video.description" [disabled]="!video.isEditable" />
+            <input formControlName="description" class="form-control" placeholder="Description">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="video.videoLink" [disabled]="!video.isEditable" />
+            <input formControlName="videoLink" class="form-control" placeholder="Video link">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="video.videoThumbnail" [disabled]="!video.isEditable" />
+            <input formControlName="videoThumbnail" class="form-control" placeholder="Video thumbnail">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="video.ageLimit" [disabled]="!video.isEditable" />
+            <input formControlName="ageLimit" class="form-control" placeholder="Age limit">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="video.rating" [disabled]="!video.isEditable" />
+            <input formControlName="rating" class="form-control" placeholder="Rating">
+          </td>
+
+        </form> -->
+
+
         <td>
-            <input type="text" [(ngModel)]="video.videoName" [disabled]="!video.isEditable"/>
-          </td>
-          <td>
-            <input type="text" [(ngModel)]="video.genre" [disabled]="!video.isEditable"/>
-          </td>
-          <td>
-            <input type="text" [(ngModel)]="video.description" [disabled]="!video.isEditable"/>
-          </td>
-          <td>
-            <input type="text" [(ngModel)]="video.videoLink" [disabled]="!video.isEditable"/>
-          </td>
-          <td>
-            <input type="text" [(ngModel)]="video.videoThumbnail" [disabled]="!video.isEditable"/>
-          </td>
-          <td>
-            <input type="text" [(ngModel)]="video.ageLimit" [disabled]="!video.isEditable"/>
-          </td>
-          <td>
-            <input type="text" [(ngModel)]="video.rating" [disabled]="!video.isEditable"/>
-          </td>
-          
-          <td><button class="btn btn-danger" (click)="deleteVideo(video)"> Delete Video</button></td>
-          <td>
-            <button class="btn btn-danger" (click)="video.isEditable=!video.isEditable" *ngIf="!video.isEditable">Edit Video</button>
-            <button class="btn btn-danger" *ngIf="video.isEditable" (click)="video.isEditable=!video.isEditable" (click)="editVideo(video)">Save Video</button>
-          </td>
+          <input type="text" [(ngModel)]="video.videoName" [disabled]="!video.isEditable" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="video.genre" [disabled]="!video.isEditable" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="video.description" [disabled]="!video.isEditable" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="video.videoLink" [disabled]="!video.isEditable" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="video.videoThumbnail" [disabled]="!video.isEditable" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="video.ageLimit" [disabled]="!video.isEditable" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="video.rating" [disabled]="!video.isEditable" />
+        </td>
+
+        <td><button class="btn btn-danger" (click)="deleteVideo(video)"> Delete Video</button></td>
         
+        <td>
+          <button class="btn btn-danger" (click)="video.isEditable=!video.isEditable" *ngIf="!video.isEditable">Edit Video</button>
+          <button class="btn btn-danger" *ngIf="video.isEditable" (click)="video.isEditable=!video.isEditable" (click)="editVideo(video)">Save Video</button>
+        </td>
+
       </tr>
-      </tbody>
-    </table>
-  </div>
+    </tbody>
+  </table>
+</div>

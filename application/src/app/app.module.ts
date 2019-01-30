@@ -18,6 +18,8 @@ import { LogoutComponent } from './authentication/logout.component';
 import { AuthGuardService } from './authentication/auth-guard.service';
 import { AuthService } from './authentication/auth.service';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import { AuthService } from './authentication/auth.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [VideoService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]
