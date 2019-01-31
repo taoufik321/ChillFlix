@@ -20,6 +20,9 @@ import { AuthService } from './authentication/auth.service';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './store/video.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      video: reducer
+    })
   ],
   providers: [VideoService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]
