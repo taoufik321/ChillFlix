@@ -26,7 +26,7 @@ export class VideoEffects {
     );
 
     @Effect()
-    add$: Observable<AddVideo | AddVideoComplete | GetError> = this.actions$.pipe(
+    add$: Observable<AddVideoComplete | GetError> = this.actions$.pipe(
         ofType<AddVideo>(VideoActionTypes.ADD),
         mergeMap(action =>
             this.videoService.createVideo(action.payload).pipe(

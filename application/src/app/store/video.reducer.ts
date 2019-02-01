@@ -22,17 +22,33 @@ export function reducer(state: Video[] = [], action: VideoActionsUnion) {
         case VideoActionTypes.GET:
             return [...state];
         case VideoActionTypes.GET_COMPLETE:
+            // Dit is toegevoegd om de alleen de nieuwe state toe te voegen en de oude te verwijderen
+            // Tegen verdubbeling van data
+            state.splice(0, state.length);
+
             for (const entry of action.payload) {
                 state.push(entry);
             }
-            return state;
+            return {
+                state,
+                data: action.payload,
+                error: false
+            };
         case VideoActionTypes.GET_ERROR:
-            return [...state];
+            return {
+                ...state,
+                data: '',
+                error: true
+            };
         case VideoActionTypes.ADD:
             return [...state];
         case VideoActionTypes.ADD_COMPLETE:
             state.push(action.payload);
-            return state;
+            return {
+                state,
+                data: action.payload,
+                error: false
+            };
         case VideoActionTypes.DELETE:
             state.splice(action.payload, 1);
             return state;
