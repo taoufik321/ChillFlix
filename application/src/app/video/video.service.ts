@@ -22,8 +22,6 @@ export class VideoService {
   }
 
   public getVideo(id) {
-    // console.log('Hij gaat langs de methode:' + id);
-    // console.log('Dit wordt de URL voor de getVideo:' + this.videoUrl + '/' + id);
     return this.http.get<Video>(this.videoUrl + '/' + id);
   }
 
@@ -36,8 +34,6 @@ export class VideoService {
   }
 
   public editVideo(video) {
-    // console.log('hij gaat hier langs');
-    // console.log(this.videoUrl + '/' + video.id, video);
     return this.http.put<Video>(this.videoUrl + '/' + video.id, video);
   }
 

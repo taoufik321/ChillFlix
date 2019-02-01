@@ -4,26 +4,45 @@
   <div>
     <form [formGroup]="addVideoForm" (ngSubmit)="onFormSubmit()">
       <ul>
-      <li (click)="deleteVideo(i)" *ngFor="let video of video2 | async; let i = index">
-      <p>Video name: <input formControlName="videoName" class="form-control" value="{{video.videoName}}" #videoName></p>
+      <!-- <li *ngFor="let video of videos$ | async"> -->
+      <p>Video name: <input type="text" formControlName="videoName" class="form-control" placeholder="Video Name"></p>
       
-      <p>Genre: <input formControlName="genre" class="form-control" value="{{video.genre}}" #genre></p>
+      <p>Genre: <input formControlName="genre" class="form-control" placeholder="Genre"></p>
 
-      <p>Description: <input formControlName="description" class="form-control" value="{{video.description}}" #description></p>
+      <p>Description: <input formControlName="description" class="form-control" placeholder="Description"></p>
 
-      <p>Video link: <input formControlName="videoLink" class="form-control" value="{{video.videoLink}}" #videoLink></p>
+      <p>Video link: <input formControlName="videoLink" class="form-control" placeholder="Video Link"></p>
 
-      <p>Video thumbnail: <input formControlName="videoThumbnail" class="form-control" value="{{video.videoThumbnail}}" #videoThumbnail></p>
+      <p>Video thumbnail: <input formControlName="videoThumbnail" class="form-control" placeholder="Video Thumbnail"></p>
 
-      <p>Age limit: <input formControlName="ageLimit" class="form-control" value="{{video.ageLimit}}" #ageLimit></p>
+      <p>Age limit: <input formControlName="ageLimit" class="form-control" placeholder="Age Limit"></p>
 
-      <!-- <p>Rating: <input formControlName="rating" class="form-control" value="video.rating" #rating></p> -->
+      <!-- <p>Rating: <input formControlName="rating" class="form-control" placeholder="Rating"></p> -->
 
-      <p><button type="submit" class="btn btn-primary my-2" (click)="addVideo('', videoName.value, genre.value, description.value, videoLink.value, videoThumbnail.value, ageLimit.value, rating.value)">Create</button></p> 
+      <p><button type="submit" class="btn btn-primary my-2">Create</button></p> 
       
-      </li>
+      <!-- </li> -->
       </ul>
     </form>
   </div>
 
 </div>
+
+<h3>Toegevoegde video's</h3>
+<ul>
+    <li *ngFor="let video of videos$ | async">
+      <p>{{video.videoName}}</p>
+        <!-- <div>{{( video | async)?.data}}</div> -->
+    </li>    
+</ul>
+
+<!-- <div *ngIf="(videoData$ | async)?.error">Error occured while getting data</div> -->
+
+<!-- (click)="addVideo('', videoName.value, genre.value, description.value, videoLink.value, videoThumbnail.value, ageLimit.value)" -->
+
+  <!-- <h3>Video's</h3>
+  <ul>
+    <li (click)="deleteVideo(i)" *ngFor="let video of video2 | async; let i = index">
+      <a>{{ video.videoName }}</a>
+    </li>
+  </ul> -->

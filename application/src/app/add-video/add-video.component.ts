@@ -6,23 +6,25 @@ import { VideoService } from '../video/video.service';
 
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Observable } from 'rxjs/Observable';
-import { Store } from '@ngrx/store';
-import { AppState } from '../store/app.state';
-
 import * as VideoActions from '../store/video.actions';
-import { generate } from 'rxjs';
+
+import { GetVideo, AddVideo } from '../store/video.actions';
+
+import { Observable, generate } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../store/app.state';
 
 @Component({
   selector: 'app-add-video',
   templateUrl: './add-video.component.html',
   styleUrls: ['./add-video.component.scss']
 })
+
 export class AddVideoComponent implements OnInit {
 
   video: Video = new Video();
 
-  video2: Observable<Video[]>;
+  videos$: Observable<Video[]>;
 
   addVideoForm = new FormGroup({
 		videoName: new FormControl(),
@@ -32,7 +34,12 @@ export class AddVideoComponent implements OnInit {
     videoThumbnail: new FormControl(),
     ageLimit: new FormControl()
     // rating: new FormControl()
-	});
+  });
+
+  ngOnInit() {
+    this.store.dispatch(new GetVideo);
+    // this.videos$ = this.store.pipe(select(s => s.video, '', ''));
+  }
 
   onFormSubmit() {
     this.video.videoName = this.addVideoForm.get('videoName').value;
@@ -46,36 +53,28 @@ export class AddVideoComponent implements OnInit {
     this.createVideo();
 	}
 
-  constructor(private store: Store<AppState>, private router: Router, private videoService: VideoService) {
-    this.video2 = store.select('video');
+  constructor(private store: Store<AppState>, private router: Router) {
+    this.videos$ = store.select('video');
   }
 
-  addVideo(id, videoName, genre, description, videoLink, videoThumbnail, ageLimit, rating) {
-    this.store.dispatch(new VideoActions.AddVideo({
-      id: id,
-      videoName: videoName,
-      genre: genre,
-      description: description,
-      videoLink: videoLink,
-      videoThumbnail: videoThumbnail,
-      ageLimit: ageLimit,
-      rating: rating
-    })
-    );
-  }
+  // deleteVideo(index) {
+  //   this.store.dispatch(new VideoActions.RemoveVideo(index));
+  // }
 
-  deleteVideo(index) {
-    this.store.dispatch(new VideoActions.RemoveVideo(index));
-  }
+  // createVideo(): void {
+  //   this.videoService.createVideo(this.video)
+  //       .subscribe( data => {
+  //         alert('Video added successfully.');
+  //       });
+  // }
 
-  ngOnInit() {
-  }
+  createVideo() {
+    console.log('Hij gaat hier langs.');
 
-  createVideo(): void {
-    this.videoService.createVideo(this.video)
-        .subscribe( data => {
-          alert('Video added successfully.');
-        });
-  }
+    console.log(this.video);
 
+    console.log(this.videos$);
+
+    this.store.dispatch(new AddVideo(this.video));
+  }
 }

@@ -8,7 +8,7 @@ import { of } from 'rxjs';
 import { User } from './user';
 
 const USERS = [
-    new User(1, 'admin', '1234', 'ADMIN'),
+    new User(1, 'admin', 'admin', 'ADMIN'),
     new User(2, 'user', 'test', 'USER')
 ];
 

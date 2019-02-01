@@ -23,6 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './store/video.reducer';
 
+import { EffectsModule } from '@ngrx/effects';
+import { VideoEffects } from './store/video.effects';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +42,7 @@ import { reducer } from './store/video.reducer';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    EffectsModule.forRoot([VideoEffects]),
     StoreModule.forRoot({
       video: reducer
     })
