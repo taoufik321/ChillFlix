@@ -29,11 +29,14 @@ export function reducer(state: Video[] = [], action: VideoActionsUnion) {
             for (const entry of action.payload) {
                 state.push(entry);
             }
-            return {
-                state,
-                data: action.payload,
-                error: false
-            };
+
+            return state;
+
+            // return {
+            //     state,
+            //     data: action.payload,
+            //     error: false
+            // };
         case VideoActionTypes.GET_ERROR:
             return {
                 ...state,
@@ -44,11 +47,14 @@ export function reducer(state: Video[] = [], action: VideoActionsUnion) {
             return [...state];
         case VideoActionTypes.ADD_COMPLETE:
             state.push(action.payload);
-            return {
-                state,
-                data: action.payload,
-                error: false
-            };
+
+            return state;
+
+            // return {
+            //     state,
+            //     data: action.payload,
+            //     error: false
+            // };
         case VideoActionTypes.DELETE:
             state.splice(action.payload, 1);
             return state;

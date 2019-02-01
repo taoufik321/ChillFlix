@@ -32,12 +32,13 @@
 <ul>
     <li *ngFor="let video of videos$ | async">
       <p>{{video.videoName}}</p>
-        <!-- <div>{{( video | async)?.data}}</div> -->
+      <div *ngIf="(videos$ | async)?.error">Error occured while getting data</div> 
     </li>    
 </ul>
 
 <!-- <div *ngIf="(videoData$ | async)?.error">Error occured while getting data</div> -->
 
+<!-- <div>{{( video | async)?.data}}</div> -->
 <!-- (click)="addVideo('', videoName.value, genre.value, description.value, videoLink.value, videoThumbnail.value, ageLimit.value)" -->
 
   <!-- <h3>Video's</h3>
